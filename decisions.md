@@ -43,3 +43,17 @@ An initialized `main` branch provides a stable pull request target. `preprod` ho
 ### Why this method over alternatives
 
 A persistent `preprod` branch was chosen because the repository owner requested it. Direct work on `main` would bypass review, while creating only short-lived branches would not provide the requested shared pre-production integration branch.
+
+## 2026-10-16 — Protect `main` and align `preprod`
+
+### What changed
+
+Fast-forwarded `preprod` to the merged `main` commit. Added an active GitHub ruleset that blocks deletion and force pushes on `main` and requires changes to enter through pull requests. Expanded the README with the current branch workflow.
+
+### Why this approach
+
+The ruleset enforces the repository's documented review process instead of relying on contributor memory. Keeping `preprod` aligned after a merge prevents later work from starting on an outdated base.
+
+### Why this method over alternatives
+
+A repository ruleset was chosen over informal guidance or legacy branch protection because one policy can enforce pull requests, deletion protection, and non-fast-forward protection together. Required approvals were left at zero while the repository has one active maintainer; mandatory approval would block routine merges without adding an independent reviewer.
