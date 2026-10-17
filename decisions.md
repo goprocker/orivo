@@ -16,6 +16,20 @@ Keeping build settings in version control makes local CLI deploys and future Git
 
 A small `netlify.toml` matches the existing static Astro output and avoids relying only on dashboard settings that reviewers cannot inspect in this repository.
 
+## 2026-10-17 — Add baseline legal and error pages
+
+### What changed
+
+Added a branded 404 page, separate Privacy Policy and Terms of Use routes, footer legal navigation, and permissive crawler rules.
+
+### Why this approach
+
+These pages cover basic navigation failure and launch information needs without introducing integrations. The policies describe the current site accurately: it has no forms, accounts, analytics, advertising cookies, or stored visitor submissions.
+
+### Why this method over alternatives
+
+One shared legal-page component keeps policy presentation consistent. Unavailable legal contact and business details remain explicit prelaunch requirements instead of invented information. A sitemap URL was omitted from `robots.txt` because the production domain is not confirmed.
+
 ## 2026-10-17 — Build the marketing site with Astro
 
 ### What changed
