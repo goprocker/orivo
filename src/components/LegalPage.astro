@@ -1,0 +1,32 @@
+---
+import Footer from "./Footer.astro";
+import Header from "./Header.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  eyebrow: string;
+  updated: string;
+}
+
+const { title, description, eyebrow, updated } = Astro.props;
+---
+
+<BaseLayout title={`${title} — ORVIO`} description={description}>
+  <div id="top" class="page-shell">
+    <Header />
+    <main>
+      <header class="legal-hero">
+        <p class="eyebrow">{eyebrow}</p>
+        <h1>{title}</h1>
+        <p>Last updated: {updated}</p>
+      </header>
+
+      <article class="legal-content">
+        <slot />
+      </article>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>
