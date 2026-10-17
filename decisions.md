@@ -2,6 +2,34 @@
 
 This file records meaningful code and architecture decisions. Add an entry immediately after each relevant change. Preserve earlier entries so contributors can understand how the project evolved.
 
+## 2026-10-17 — Build the marketing site with Astro
+
+### What changed
+
+Added an Astro and TypeScript application with a responsive homepage, shared layout, navigation, footer, custom design system, and static production output.
+
+### Why this approach
+
+OVIRO's first release is a content-led marketing site. Astro renders the experience as fast static HTML while allowing focused interactive components later. Custom CSS keeps the visual identity distinct and avoids shipping a general-purpose component framework.
+
+### Why this method over alternatives
+
+A client-rendered single-page application would add JavaScript without improving the current visitor journey. A CMS and database were deferred because content ownership and editing requirements are not confirmed. The separate pages use only confirmed social-media positioning and mark unavailable contact and portfolio information clearly instead of inventing it.
+
+## 2026-10-17 — Focus OVIRO exclusively on social media
+
+### What changed
+
+Removed website services from the product positioning and separated Home, Services, Work, About, and Contact into dedicated routes. Reworked the home page around a social-first feed concept and a stronger opening statement.
+
+### Why this approach
+
+OVIRO provides social media services only. Dedicated routes give each visitor question enough space while the home page can focus on attention, differentiation, and the project inquiry path.
+
+### Why this method over alternatives
+
+A single long page made the agency offer less precise and mixed navigation with section anchors. Generic agency claims and fabricated work were rejected; unconfirmed portfolio and contact details remain explicit placeholders until approved facts arrive.
+
 ## 2026-10-16 — Establish a project decision log
 
 ### What changed

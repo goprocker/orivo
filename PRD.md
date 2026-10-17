@@ -7,7 +7,7 @@
 
 ## 1. Product summary
 
-OVIRO is a social media agency that also provides website services. This project will create OVIRO's public marketing website. The website must explain the agency's services, establish credibility, showcase selected work, and convert suitable visitors into project inquiries.
+OVIRO is a social media agency. This project will create OVIRO's public marketing site. The site must explain the agency's services, establish credibility, showcase selected work, and convert suitable visitors into project inquiries.
 
 The first release will be a fast, responsive, accessible marketing website. It will not require customer accounts, a database, or a full content management system unless later requirements make them necessary.
 
@@ -15,7 +15,7 @@ The first release will be a fast, responsive, accessible marketing website. It w
 
 - Official brand name: **OVIRO**
 - Business type: social media agency
-- Confirmed capability: website services
+- Confirmed focus: social media services only
 - Other services shown in this PRD are proposed and must be confirmed before final copy is published.
 
 ## 3. Problem statement
@@ -52,8 +52,7 @@ The exact market requires confirmation. Initial user groups are:
 
 1. Business owners seeking help with social media and digital presence.
 2. Marketing teams seeking a creative or production partner.
-3. Founders and organizations needing a new or improved website.
-4. Prospective partners or talent researching OVIRO.
+3. Prospective partners or talent researching OVIRO.
 
 ## 6. Primary user journey
 
@@ -79,13 +78,12 @@ Secondary journey: visitor opens a case study, reviews the challenge, work, and 
 
 ### Proposed service categories
 
-Only **Website Design & Development** is confirmed. Confirm the remaining categories before final publication.
+OVIRO is exclusively a social media agency. Confirm the exact delivery scope before final publication.
 
-- Social Media Management — proposed
-- Content Creation — proposed
-- Brand Strategy and Identity — proposed
-- Paid Campaigns — proposed
-- Website Design & Development — confirmed
+- Social strategy — proposed
+- Content systems — proposed
+- Campaign creative — proposed
+- Community and growth — proposed
 
 ## 8. Page requirements
 
@@ -128,7 +126,7 @@ Each complete case study should contain:
 - OVIRO's approach
 - Deliverables
 - Outcome or approved result
-- Images, video, or website link when available
+- Images, video, or campaign link when available
 
 ### 8.4 About
 
@@ -271,7 +269,7 @@ The first release is ready for review when:
 
 - OVIRO spelling is correct across visible copy and metadata.
 - All required pages exist and navigation works.
-- Home page clearly identifies OVIRO as a social media agency offering website services.
+- Home page clearly identifies OVIRO as a social media agency.
 - All published business claims and portfolio content are approved facts.
 - Inquiry form handles valid, invalid, failed, spam-like, and successful submissions.
 - Layout passes checks at 375px, 768px, 1024px, and 1440px widths.

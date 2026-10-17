@@ -1,0 +1,72 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const services = [
+  {
+    number: "01",
+    title: "Social strategy",
+    lead: "Know where to play and what to own.",
+    detail: "We shape a focused social direction around audience behaviour, brand truth, platform context, and a repeatable point of view.",
+    items: ["Audience direction", "Channel role", "Content territories", "Social playbook"],
+  },
+  {
+    number: "02",
+    title: "Content systems",
+    lead: "Make consistency feel alive.",
+    detail: "We build visual and editorial systems that help brands create recognisable content without repeating themselves.",
+    items: ["Creative direction", "Content formats", "Editorial rhythm", "Production guidance"],
+  },
+  {
+    number: "03",
+    title: "Campaign creative",
+    lead: "Give people something worth sharing.",
+    detail: "We turn campaign goals into social-first ideas with a clear hook, platform logic, and room for conversation.",
+    items: ["Campaign concept", "Launch story", "Social activations", "Creative rollout"],
+  },
+  {
+    number: "04",
+    title: "Community & growth",
+    lead: "Build participation, not passive reach.",
+    detail: "We help brands create a useful community rhythm, respond with character, and learn from what people do next.",
+    items: ["Community voice", "Engagement approach", "Growth experiments", "Learning loops"],
+  },
+];
+---
+
+<BaseLayout title="Services — OVIRO" description="Explore OVIRO social strategy, content, campaign, and community services.">
+  <div id="top" class="page-shell">
+    <Header />
+    <main>
+      <section class="inner-hero inner-hero--orange">
+        <p class="eyebrow">Services / Social only</p>
+        <h1>Built to live<br /><em>in the feed.</em></h1>
+        <p class="inner-hero__intro">Strategy is the backbone. Creative is the behaviour. Community is the proof.</p>
+      </section>
+
+      <section class="service-detail section-pad" aria-label="OVIRO services">
+        {services.map((service) => (
+          <article>
+            <span class="service-detail__number">{service.number}</span>
+            <div class="service-detail__title">
+              <h2>{service.title}</h2>
+              <strong>{service.lead}</strong>
+            </div>
+            <div class="service-detail__copy">
+              <p>{service.detail}</p>
+              <ul>{service.items.map((item) => <li>{item}</li>)}</ul>
+            </div>
+          </article>
+        ))}
+      </section>
+
+      <section class="page-cta section-pad">
+        <p class="eyebrow">Need a sharper social presence?</p>
+        <h2>Bring the brief.<br /><em>We’ll find the signal.</em></h2>
+        <a class="text-link" href="/contact">Start a conversation <span aria-hidden="true">↗</span></a>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>
