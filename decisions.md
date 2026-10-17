@@ -2,6 +2,20 @@
 
 This file records meaningful code and architecture decisions. Add an entry immediately after each relevant change. Preserve earlier entries so contributors can understand how the project evolved.
 
+## 2026-10-17 — Configure static Netlify deployment
+
+### What changed
+
+Added repository-owned Netlify build settings for the Astro production command and `dist` publish directory. Ignored Netlify's local project state directory.
+
+### Why this approach
+
+Keeping build settings in version control makes local CLI deploys and future Git-connected deploys use the same repeatable static build.
+
+### Why this method over alternatives
+
+A small `netlify.toml` matches the existing static Astro output and avoids relying only on dashboard settings that reviewers cannot inspect in this repository.
+
 ## 2026-10-17 — Build the marketing site with Astro
 
 ### What changed
