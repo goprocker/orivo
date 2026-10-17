@@ -1,39 +1,39 @@
-# OVIRO Agency Website — Product Requirements Document
+# ORVIO Agency Website — Product Requirements Document
 
 **Status:** Draft for review  
 **Version:** 0.1  
 **Date:** 2026-10-17  
-**Product:** OVIRO marketing website
+**Product:** ORVIO marketing website
 
 ## 1. Product summary
 
-OVIRO is a social media agency. This project will create OVIRO's public marketing site. The site must explain the agency's services, establish credibility, showcase selected work, and convert suitable visitors into project inquiries.
+ORVIO is a social media agency. This project will create ORVIO's public marketing site. The site must explain the agency's services, establish credibility, showcase selected work, and convert suitable visitors into project inquiries.
 
 The first release will be a fast, responsive, accessible marketing website. It will not require customer accounts, a database, or a full content management system unless later requirements make them necessary.
 
 ## 2. Confirmed business information
 
-- Official brand name: **OVIRO**
+- Official brand name: **ORVIO**
 - Business type: social media agency
 - Confirmed focus: social media services only
 - Other services shown in this PRD are proposed and must be confirmed before final copy is published.
 
 ## 3. Problem statement
 
-Prospective clients need a clear way to understand what OVIRO offers, judge the quality of its work, and contact the agency. OVIRO needs a focused online presence that supports discovery, builds trust, and produces qualified inquiries.
+Prospective clients need a clear way to understand what ORVIO offers, judge the quality of its work, and contact the agency. ORVIO needs a focused online presence that supports discovery, builds trust, and produces qualified inquiries.
 
 ## 4. Product goals
 
 ### Primary goal
 
-Generate qualified project inquiries for OVIRO.
+Generate qualified project inquiries for ORVIO.
 
 ### Supporting goals
 
-- Explain OVIRO's services in clear language.
-- Position OVIRO as a capable creative and digital partner.
+- Explain ORVIO's services in clear language.
+- Position ORVIO as a capable creative and digital partner.
 - Demonstrate credibility through real work, results, and testimonials when supplied.
-- Make contacting OVIRO easy on mobile and desktop.
+- Make contacting ORVIO easy on mobile and desktop.
 - Create a foundation that can grow with new case studies and services.
 
 ### Non-goals for first release
@@ -52,17 +52,17 @@ The exact market requires confirmation. Initial user groups are:
 
 1. Business owners seeking help with social media and digital presence.
 2. Marketing teams seeking a creative or production partner.
-3. Prospective partners or talent researching OVIRO.
+3. Prospective partners or talent researching ORVIO.
 
 ## 6. Primary user journey
 
 1. Visitor lands on the home page.
-2. Visitor understands what OVIRO does from the first screen.
+2. Visitor understands what ORVIO does from the first screen.
 3. Visitor reviews services and selected work.
 4. Visitor sees evidence of process, expertise, or results.
 5. Visitor selects **Start a project**.
 6. Visitor submits a concise inquiry.
-7. OVIRO receives the inquiry and can respond using the supplied contact details.
+7. ORVIO receives the inquiry and can respond using the supplied contact details.
 
 Secondary journey: visitor opens a case study, reviews the challenge, work, and outcome, then starts an inquiry.
 
@@ -73,12 +73,12 @@ Secondary journey: visitor opens a case study, reviews the challenge, work, and 
 - **Home** — positioning, services, selected work, process, proof, and main call to action
 - **Services** — clear description of each confirmed service
 - **Work** — selected projects and case studies
-- **About** — OVIRO's story, approach, and team information when supplied
+- **About** — ORVIO's story, approach, and team information when supplied
 - **Contact** — project inquiry form and approved contact channels
 
 ### Proposed service categories
 
-OVIRO is exclusively a social media agency. Confirm the exact delivery scope before final publication.
+ORVIO is exclusively a social media agency. Confirm the exact delivery scope before final publication.
 
 - Social strategy — proposed
 - Content systems — proposed
@@ -91,10 +91,10 @@ OVIRO is exclusively a social media agency. Confirm the exact delivery scope bef
 
 The home page must include:
 
-- Header with OVIRO wordmark, main navigation, and **Start a project** action
+- Header with ORVIO wordmark, main navigation, and **Start a project** action
 - Hero with a direct value proposition, short supporting statement, primary action, and work action
 - Service overview using confirmed service names
-- Selected work section using real projects supplied by OVIRO
+- Selected work section using real projects supplied by ORVIO
 - Simple working process
 - Credibility section for real results, client logos, or testimonials when supplied
 - Final project inquiry call to action
@@ -106,7 +106,7 @@ The services page must:
 
 - Explain each confirmed service and its expected outcome.
 - Help visitors identify which service fits their need.
-- Avoid fixed packages or pricing until OVIRO approves them.
+- Avoid fixed packages or pricing until ORVIO approves them.
 - Provide a clear route to the inquiry form.
 
 ### 8.3 Work
@@ -123,14 +123,14 @@ Each complete case study should contain:
 - Client or project name
 - Service scope
 - Challenge
-- OVIRO's approach
+- ORVIO's approach
 - Deliverables
 - Outcome or approved result
 - Images, video, or campaign link when available
 
 ### 8.4 About
 
-The about page must include OVIRO's approved story, working approach, and team information. It must not invent founding dates, locations, awards, team members, or company claims.
+The about page must include ORVIO's approved story, working approach, and team information. It must not invent founding dates, locations, awards, team members, or company claims.
 
 ### 8.5 Contact
 
@@ -140,7 +140,7 @@ The contact page must include:
 - Work email
 - Company or brand name
 - Service of interest
-- Approximate budget range, if OVIRO approves this field
+- Approximate budget range, if ORVIO approves this field
 - Project description
 - Optional timeline
 - Consent or privacy notice
@@ -150,7 +150,7 @@ The form must validate input on both client and server boundaries. It must inclu
 
 ## 9. Content requirements
 
-OVIRO must supply or approve:
+ORVIO must supply or approve:
 
 - Logo or preferred wordmark treatment
 - Final positioning statement and brand voice
@@ -177,7 +177,7 @@ The proposed direction is a bold editorial creative-agency site:
 - Purposeful motion for page entry, work reveals, and navigation feedback
 - Restrained interaction effects that do not reduce readability or performance
 
-Final colors, typography, logo use, and imagery depend on OVIRO's brand assets or explicit approval.
+Final colors, typography, logo use, and imagery depend on ORVIO's brand assets or explicit approval.
 
 ## 11. Responsive and accessibility requirements
 
@@ -267,9 +267,9 @@ Primary success indicator: qualified inquiries received through the website.
 
 The first release is ready for review when:
 
-- OVIRO spelling is correct across visible copy and metadata.
+- ORVIO spelling is correct across visible copy and metadata.
 - All required pages exist and navigation works.
-- Home page clearly identifies OVIRO as a social media agency.
+- Home page clearly identifies ORVIO as a social media agency.
 - All published business claims and portfolio content are approved facts.
 - Inquiry form handles valid, invalid, failed, spam-like, and successful submissions.
 - Layout passes checks at 375px, 768px, 1024px, and 1440px widths.
@@ -305,10 +305,10 @@ Create a review deployment, incorporate approved corrections, verify the final p
 
 The following information is required before final content and production release:
 
-1. What exact services does OVIRO sell?
-2. Who is OVIRO's primary customer and target location or market?
-3. What is OVIRO's preferred positioning statement or tagline?
-4. Does OVIRO have an existing logo, color palette, type system, or brand guide?
+1. What exact services does ORVIO sell?
+2. Who is ORVIO's primary customer and target location or market?
+3. What is ORVIO's preferred positioning statement or tagline?
+4. Does ORVIO have an existing logo, color palette, type system, or brand guide?
 5. Which projects can appear publicly, and what proof is approved for each?
 6. Which team members and company facts should appear?
 7. Which email address and other contact channels should receive inquiries?

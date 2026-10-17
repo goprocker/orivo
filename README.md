@@ -1,6 +1,6 @@
-# OVIRO
+# ORVIO
 
-OVIRO is a social media agency. This repository contains its public marketing site, built with Astro and TypeScript.
+ORVIO is a social media agency. This repository contains its public marketing site, built with Astro and TypeScript.
 
 ## Development commands
 

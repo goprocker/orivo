@@ -1,8 +1,8 @@
-# OVIRO Design System
+# ORVIO Design System
 
 ## Direction
 
-OVIRO uses a bold editorial system built for a social-first creative agency. Oversized type creates the opening impact. A black and warm-ivory base keeps the work direct; signal orange and acid lime create moments of interruption.
+ORVIO uses a bold editorial system built for a social-first creative agency. Oversized type creates the opening impact. A black and warm-ivory base keeps the work direct; signal orange and acid lime create moments of interruption.
 
 Reference principles adapted from leading social agencies:
 
