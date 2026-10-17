@@ -2,6 +2,20 @@
 
 This file records meaningful code and architecture decisions. Add an entry immediately after each relevant change. Preserve earlier entries so contributors can understand how the project evolved.
 
+## 2026-10-17 — Standardize the ORVIO brand name
+
+### What changed
+
+Changed the public brand name and project package identifier from OVIRO to ORVIO across page copy, metadata, accessibility labels, documentation, and package files.
+
+### Why this approach
+
+ORVIO is the confirmed agency name. One exact spelling prevents inconsistent search metadata, visitor-facing copy, and developer terminology.
+
+### Why this method over alternatives
+
+The existing GitHub repository URL and local checkout folder were not renamed because they are infrastructure identifiers outside the public website and changing them could break remotes or local tooling. They can be migrated separately if requested.
+
 ## 2026-10-17 — Add baseline legal and error pages
 
 ### What changed
@@ -24,13 +38,13 @@ Added an Astro and TypeScript application with a responsive homepage, shared lay
 
 ### Why this approach
 
-OVIRO's first release is a content-led marketing site. Astro renders the experience as fast static HTML while allowing focused interactive components later. Custom CSS keeps the visual identity distinct and avoids shipping a general-purpose component framework.
+ORVIO's first release is a content-led marketing site. Astro renders the experience as fast static HTML while allowing focused interactive components later. Custom CSS keeps the visual identity distinct and avoids shipping a general-purpose component framework.
 
 ### Why this method over alternatives
 
 A client-rendered single-page application would add JavaScript without improving the current visitor journey. A CMS and database were deferred because content ownership and editing requirements are not confirmed. The separate pages use only confirmed social-media positioning and mark unavailable contact and portfolio information clearly instead of inventing it.
 
-## 2026-10-17 — Focus OVIRO exclusively on social media
+## 2026-10-17 — Focus ORVIO exclusively on social media
 
 ### What changed
 
@@ -38,7 +52,7 @@ Removed website services from the product positioning and separated Home, Servic
 
 ### Why this approach
 
-OVIRO provides social media services only. Dedicated routes give each visitor question enough space while the home page can focus on attention, differentiation, and the project inquiry path.
+ORVIO provides social media services only. Dedicated routes give each visitor question enough space while the home page can focus on attention, differentiation, and the project inquiry path.
 
 ### Why this method over alternatives
 
