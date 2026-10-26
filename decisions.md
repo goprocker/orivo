@@ -127,3 +127,13 @@ The ruleset enforces the repository's documented review process instead of relyi
 ### Why this method over alternatives
 
 A repository ruleset was chosen over informal guidance or legacy branch protection because one policy can enforce pull requests, deletion protection, and non-fast-forward protection together. Required approvals were left at zero while the repository has one active maintainer; mandatory approval would block routine merges without adding an independent reviewer.
+
+## 2026-10-26 — Resolve audit issues #8–#13
+
+### What changed
+
+Pinned TypeScript to 5.9 because `astro check` cannot run on TypeScript 7. Added canonical, Open Graph, Twitter metadata, an OG image, `@astrojs/sitemap`, and a generated `robots.txt` that links the sitemap. Mobile menu now closes on Escape or outside click, and nav links carry `aria-current`. Contact and privacy pages read `PUBLIC_CONTACT_EMAIL` and show a mailto when set. Legal "last updated" date lives in `src/site.ts`. `npm test` now builds and runs smoke tests in `tests/`.
+
+### Why this approach
+
+The site origin comes from Netlify's `URL` variable so canonical URLs are correct per deploy without hardcoding a domain. The contact address is an environment variable because no official address has been supplied and inventing one would be wrong. The repo name `orivo` versus brand `ORVIO` mismatch (#12) is left for the owner, since renaming the repo changes remotes and the Netlify link.

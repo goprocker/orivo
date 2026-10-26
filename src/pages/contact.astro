@@ -2,6 +2,7 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { contactEmail } from "../site";
 ---
 
 <BaseLayout title="Contact — ORVIO" description="Start a social media project with ORVIO.">
@@ -16,8 +17,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             <p class="contact-lead">Tell us what the brand needs to change on social. We’ll start from there.</p>
             <div class="contact-status">
               <span><i aria-hidden="true"></i> Inquiry channel</span>
-              <strong>Official contact details coming soon.</strong>
-              <p>ORVIO’s email and social links will be connected before launch.</p>
+              {contactEmail ? (
+                <>
+                  <strong><a href={`mailto:${contactEmail}`}>{contactEmail}</a></strong>
+                  <p>Send a short brief and we’ll reply with next steps.</p>
+                </>
+              ) : (
+                <>
+                  <strong>Official contact details coming soon.</strong>
+                  <p>ORVIO’s email and social links will be connected before launch.</p>
+                </>
+              )}
             </div>
           </div>
           <div class="brief-list">
