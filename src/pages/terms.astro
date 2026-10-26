@@ -1,12 +1,13 @@
 ---
 import LegalPage from "../components/LegalPage.astro";
+import { legalUpdated } from "../site";
 ---
 
 <LegalPage
   title="Terms of Use"
   description="Terms for using the ORVIO website."
   eyebrow="Legal / Terms"
-  updated="17 October 2026"
+  updated={legalUpdated}
 >
   <section>
     <h2>Using this site</h2>

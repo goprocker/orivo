@@ -1,12 +1,13 @@
 ---
 import LegalPage from "../components/LegalPage.astro";
+import { contactEmail, legalUpdated } from "../site";
 ---
 
 <LegalPage
   title="Privacy Policy"
   description="How the current ORVIO website handles visitor information."
   eyebrow="Legal / Privacy"
-  updated="17 October 2026"
+  updated={legalUpdated}
 >
   <section>
     <h2>Current site behaviour</h2>
@@ -35,6 +36,10 @@ import LegalPage from "../components/LegalPage.astro";
 
   <section>
     <h2>Contact</h2>
-    <p>ORVIO’s official privacy contact address has not yet been supplied. It must be added here before production launch.</p>
+    {contactEmail ? (
+      <p>Privacy questions can be sent to <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.</p>
+    ) : (
+      <p>ORVIO’s official privacy contact address has not yet been supplied. It must be added here before production launch.</p>
+    )}
   </section>
 </LegalPage>

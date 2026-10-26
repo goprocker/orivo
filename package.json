@@ -6,12 +6,13 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
-    "test": "astro check",
+    "test": "npm run build && node --test \"tests/*.test.mjs\"",
     "lint": "astro check"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "astro": "^5.0.0",
-    "typescript": "^5.7.0"
+    "typescript": "^5.9.0",
+    "@astrojs/sitemap": "^3.6.0"
   }
 }
