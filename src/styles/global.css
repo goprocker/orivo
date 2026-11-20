@@ -52,6 +52,21 @@ summary:focus-visible {
   outline-offset: 4px;
 }
 
+.skip-link {
+  background: var(--ink);
+  color: var(--paper);
+  left: 1rem;
+  padding: 0.75rem 1rem;
+  position: fixed;
+  top: 1rem;
+  transform: translateY(-200%);
+  z-index: 1000;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
 .page-shell {
   overflow: clip;
 }
@@ -184,6 +199,20 @@ summary:focus-visible {
 @keyframes reveal-up {
   from { opacity: 0; transform: translateY(1.5rem); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scroll reveal (set by BaseLayout script; uses `translate` so existing transforms are untouched) */
+[data-scroll] {
+  opacity: 0;
+  translate: 0 1.5rem;
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1) var(--scroll-delay, 0ms),
+    translate 700ms cubic-bezier(0.22, 1, 0.36, 1) var(--scroll-delay, 0ms);
+}
+
+[data-scroll="in"] {
+  opacity: 1;
+  translate: 0 0;
 }
 
 .marquee {
@@ -680,6 +709,68 @@ summary:focus-visible {
   top: 45%;
   transform: translate(-50%, -50%);
   width: 6rem;
+}
+
+/* Hero motion. Uses individual translate/scale properties so each element's
+   existing transform (card rotation, ring centring) and resting look are unchanged. */
+.social-hero__title span {
+  animation: hero-line 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  translate: var(--hero-shift, 0) 0;
+}
+
+.social-hero__title span:nth-child(1) { --hero-shift: calc(var(--hero-progress, 0) * -6vw); animation-delay: 200ms; }
+.social-hero__title span:nth-child(2) { --hero-shift: calc(var(--hero-progress, 0) * 6vw); animation-delay: 340ms; }
+
+@keyframes hero-line {
+  from { opacity: 0; translate: 0 0.35em; }
+}
+
+.feed-card {
+  --par: calc(var(--hero-progress, 0) * var(--depth, 0px));
+  animation:
+    card-deal 1000ms cubic-bezier(0.22, 1, 0.36, 1) both,
+    card-float var(--float-time, 6s) ease-in-out 1000ms infinite;
+  transition: scale 260ms ease, box-shadow 260ms ease;
+  translate: 0 var(--par);
+}
+
+.feed-card--one { --depth: -90px; --float-time: 6s; animation-delay: 420ms, 1420ms; }
+.feed-card--two { --depth: -180px; --float-time: 7.5s; animation-delay: 540ms, 1540ms; }
+.feed-card--three { --depth: -60px; --float-time: 6.8s; animation-delay: 660ms, 1660ms; }
+
+.feed-card:hover {
+  box-shadow: 1rem 1rem 0 rgba(0, 0, 0, 0.38);
+  scale: 1.04;
+}
+
+@keyframes card-deal {
+  from { opacity: 0; translate: 0 calc(var(--par) + 6rem); }
+  to { opacity: 1; translate: 0 var(--par); }
+}
+
+@keyframes card-float {
+  0%, 100% { translate: 0 var(--par); }
+  50% { translate: 0 calc(var(--par) - 0.6rem); }
+}
+
+.pulse-ring {
+  animation: ring-pulse 2.8s ease-in-out infinite;
+}
+
+@keyframes ring-pulse {
+  0%, 100% { scale: 1; }
+  50% { scale: 1.12; }
+}
+
+.scroll-cue i {
+  animation: cue-line 2s ease-in-out infinite;
+  transform-origin: top;
+}
+
+@keyframes cue-line {
+  0% { scale: 1 0; }
+  50% { scale: 1 1; }
+  100% { scale: 1 0; transform-origin: bottom; }
 }
 
 .social-hero__bottom {
