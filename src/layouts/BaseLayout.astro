@@ -4,9 +4,17 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description: string;
+  noindex?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, noindex = false } = Astro.props;
+const orgSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "ORVIO",
+  url: new URL("/", Astro.site).href,
+  logo: new URL("/favicon.svg", Astro.site).href,
+});
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL("/og-image.png", Astro.site).href;
 ---
@@ -18,6 +26,8 @@ const ogImage = new URL("/og-image.png", Astro.site).href;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#f4efe6" />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta property="og:locale" content="en_GB" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
@@ -30,9 +40,82 @@ const ogImage = new URL("/og-image.png", Astro.site).href;
     <meta name="twitter:image" content={ogImage} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script type="application/ld+json" set:html={orgSchema} />
     <title>{title}</title>
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <slot />
+    <script is:inline>
+      // Scroll reveal: progressive enhancement. Runs inline before first paint so
+      // content never flashes. Content stays visible without JS or with reduced motion.
+      (() => {
+        const selectors = [
+          ".section-pad > *",
+          ".inner-hero > *",
+          ".section-head > *",
+          ".service-list > *",
+          ".work-callout__grid > *",
+          ".belief-grid > article",
+          ".service-detail article",
+          ".contact-grid > *",
+          ".legal-content > section",
+        ].join(",");
+
+        if (
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+          !("IntersectionObserver" in window)
+        ) return;
+
+        const candidates = Array.from(document.querySelectorAll(selectors)).filter(
+          (el) => !el.closest(".social-hero, .culture-strip") && !el.classList.contains("reveal"),
+        );
+        // Animate the innermost items only, so wrappers don't double-fade their children.
+        const items = candidates.filter((el) => !candidates.some((other) => other !== el && el.contains(other)));
+
+        const reveal = (el) => {
+          el.setAttribute("data-scroll", "in");
+          observer.unobserve(el);
+        };
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              // Also reveal anything already scrolled past (fast scroll, anchor jump, restored position).
+              if (entry.isIntersecting || entry.boundingClientRect.top < 0) reveal(entry.target);
+            });
+          },
+          { rootMargin: "0px 0px -10% 0px", threshold: 0.1 },
+        );
+
+        items.forEach((el) => {
+          const siblings = Array.from(el.parentElement.children);
+          const index = Math.min(siblings.indexOf(el), 5);
+          el.style.setProperty("--scroll-delay", `${index * 80}ms`);
+          el.setAttribute("data-scroll", "");
+          observer.observe(el);
+        });
+
+        // Backup for jumps that skip an item without ever intersecting it.
+        let pending = false;
+        const catchUp = () => {
+          pending = false;
+          document.querySelectorAll('[data-scroll=""]').forEach((el) => {
+            if (el.getBoundingClientRect().top < window.innerHeight) reveal(el);
+          });
+        };
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (!pending) {
+              pending = true;
+              requestAnimationFrame(catchUp);
+            }
+          },
+          { passive: true },
+        );
+      })();
+    </script>
   </body>
 </html>

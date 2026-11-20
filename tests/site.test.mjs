@@ -30,3 +30,27 @@ test("mobile menu summary keeps its visible label as accessible name", () => {
 test("contact page shows a status when no email is configured", () => {
   assert.match(page("contact/index.html"), /contact details coming soon|mailto:/);
 });
+
+test("scroll reveal script ships on every route and respects reduced motion", () => {
+  for (const route of routes) {
+    const html = page(route === "index" ? "index.html" : `${route}/index.html`);
+    assert.match(html, /<script[^>]*>[\s\S]*IntersectionObserver/, route);
+    assert.match(html, /prefers-reduced-motion/, route);
+    assert.doesNotMatch(html, /<[a-z][^>]*\sdata-scroll/, `${route} must not hide content in static HTML`);
+  }
+});
+
+test("every route has a skip link targeting main, manifest and organization schema", () => {
+  for (const route of routes) {
+    const html = page(route === "index" ? "index.html" : `${route}/index.html`);
+    assert.match(html, /class="skip-link" href="#main"/, route);
+    assert.match(html, /<main id="main"/, route);
+    assert.match(html, /rel="manifest" href="\/site\.webmanifest"/, route);
+    assert.match(html, /"@type":"Organization"/, route);
+    assert.doesNotMatch(html, /name="robots" content="noindex"/, route);
+  }
+});
+
+test("404 page is excluded from indexing", () => {
+  assert.match(page("404.html"), /name="robots" content="noindex"/);
+});
