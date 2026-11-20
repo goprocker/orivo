@@ -2,6 +2,7 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { story, team } from "../data/samples";
 ---
 
 <BaseLayout title="About — ORVIO" description="ORVIO is a social-first creative agency built around attention, relevance, and community.">
@@ -25,8 +26,31 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </div>
       </section>
 
+      <section class="about-story section-pad" aria-labelledby="story-title">
+        <p class="eyebrow">Our story <span class="sample-tag">Sample</span></p>
+        <h2 id="story-title">Less noise.<br /><em>More signal.</em></h2>
+        <div class="about-story__copy">
+          {story.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </section>
+
+      <section class="beliefs team section-pad" aria-labelledby="team-title">
+        <p class="eyebrow">The team <span class="sample-tag">Sample profiles</span></p>
+        <h2 id="team-title">The people<br />behind the feed.</h2>
+        <div class="belief-grid">
+          {team.map((person) => (
+            <article>
+              <span class="team-avatar" aria-hidden="true">{person.initials}</span>
+              <h3>{person.name}</h3>
+              <p><strong>{person.role}</strong></p>
+              <p>{person.bio}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section class="about-note section-pad">
-        <p>Company story, location, and team profiles will be added after ORVIO supplies the approved facts.</p>
+        <p>Got a brand that deserves to be followed?</p>
         <a class="text-link text-link--light" href="/contact">Meet us through a project <span aria-hidden="true">↗</span></a>
       </section>
     </main>

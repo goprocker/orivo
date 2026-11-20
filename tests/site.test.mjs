@@ -54,3 +54,21 @@ test("every route has a skip link targeting main, manifest and organization sche
 test("404 page is excluded from indexing", () => {
   assert.match(page("404.html"), /name="robots" content="noindex"/);
 });
+
+const sampleSlugs = ["kiln-and-co", "tidepool-swim", "halfmoon-records", "brightside-bikes"];
+
+test("work page links to every sample case study and each one builds", () => {
+  const work = page("work/index.html");
+  for (const slug of sampleSlugs) {
+    assert.match(work, new RegExp(`href="/work/${slug}"`), slug);
+    const study = page(`work/${slug}/index.html`);
+    assert.match(study, /<h1/, slug);
+    assert.match(study, /class="sample-tag"/, `${slug} must be labelled as a sample`);
+  }
+});
+
+test("sample content is visibly labelled on work, about and contact", () => {
+  for (const route of ["work", "about", "contact"]) {
+    assert.match(page(`${route}/index.html`), /class="sample-tag"/, route);
+  }
+});

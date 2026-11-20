@@ -2,6 +2,7 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { caseStudies } from "../data/samples";
 ---
 
 <BaseLayout title="Work — ORVIO" description="Selected social media work from ORVIO.">
@@ -11,20 +12,26 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <section class="inner-hero inner-hero--dark">
         <p class="eyebrow eyebrow-light">Work / Archive</p>
         <h1>Made to be<br /><em>remembered.</em></h1>
-        <p class="inner-hero__intro">We only publish real work with approved details. The first ORVIO case studies are being prepared.</p>
+        <p class="inner-hero__intro">Ideas built for the feed. The projects below are sample case studies that show how ORVIO work will be presented.</p>
       </section>
 
-      <section class="archive-empty section-pad" aria-labelledby="archive-title">
-        <div class="archive-index"><span>001</span><span>Coming soon</span></div>
-        <div class="archive-poster">
-          <span>THE WORK<br />IS LOADING</span>
-          <i aria-hidden="true"></i>
-        </div>
-        <div class="archive-copy">
-          <h2 id="archive-title">Proof over placeholders.</h2>
-          <p>Client names, campaign details, visuals, and outcomes will appear here only after they are supplied and approved.</p>
-          <a class="text-link" href="/contact">Talk about your project <span aria-hidden="true">↗</span></a>
-        </div>
+      <section class="case-list section-pad" aria-labelledby="archive-title">
+        <div class="archive-index"><span>Selected work</span><span class="sample-tag">Sample projects</span></div>
+        <h2 id="archive-title" class="visually-hidden">Case studies</h2>
+        {caseStudies.map((study, index) => (
+          <a class="case-card" href={`/work/${study.slug}`}>
+            <div class={`case-card__poster case-card__poster--${study.colour}`} aria-hidden="true">
+              <span>{String(index + 1).padStart(3, "0")}</span>
+              <strong>{study.client}</strong>
+            </div>
+            <div class="case-card__copy">
+              <p class="case-card__meta">{study.sector} <span class="sample-tag">Sample</span></p>
+              <h3>{study.title}</h3>
+              <p>{study.summary}</p>
+              <span class="text-link">View case study <span aria-hidden="true">↗</span></span>
+            </div>
+          </a>
+        ))}
       </section>
     </main>
     <Footer />

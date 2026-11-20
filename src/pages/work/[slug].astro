@@ -1,0 +1,56 @@
+---
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { caseStudies, type CaseStudy } from "../../data/samples";
+
+export function getStaticPaths() {
+  return caseStudies.map((study) => ({ params: { slug: study.slug }, props: { study } }));
+}
+
+const { study } = Astro.props as { study: CaseStudy };
+const index = caseStudies.findIndex((item) => item.slug === study.slug);
+const next = caseStudies[(index + 1) % caseStudies.length];
+const sections = [
+  { number: "01", title: "The challenge", text: study.challenge },
+  { number: "02", title: "The idea", text: study.idea },
+  { number: "03", title: "The outcome", text: study.outcome },
+];
+---
+
+<BaseLayout title={`${study.client} (sample case study) — ORVIO`} description={study.summary}>
+  <div id="top" class="page-shell">
+    <Header />
+    <main id="main">
+      <section class="inner-hero inner-hero--dark">
+        <p class="eyebrow eyebrow-light">Work / {study.client} <span class="sample-tag">Sample</span></p>
+        <h1>{study.title}</h1>
+        <p class="inner-hero__intro">{study.summary}</p>
+      </section>
+
+      <section class="service-detail section-pad" aria-label={`${study.client} case study`}>
+        {sections.map((section, i) => (
+          <article>
+            <span class="service-detail__number">{section.number}</span>
+            <div class="service-detail__title">
+              <h2>{section.title}</h2>
+              {i === 0 && <strong>{study.sector}</strong>}
+            </div>
+            <div class="service-detail__copy">
+              <p>{section.text}</p>
+              {i === 1 && <ul>{study.work.map((item) => <li>{item}</li>)}</ul>}
+              {i === 2 && <ul>{study.services.map((item) => <li>{item}</li>)}</ul>}
+            </div>
+          </article>
+        ))}
+      </section>
+
+      <section class="page-cta section-pad">
+        <p class="eyebrow">Next project</p>
+        <h2>{next.client}<br /><em>{next.sector}.</em></h2>
+        <a class="text-link" href={`/work/${next.slug}`}>View case study <span aria-hidden="true">↗</span></a>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>
