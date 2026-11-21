@@ -3,6 +3,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { contactEmail } from "../site";
+import { process } from "../data/samples";
 ---
 
 <BaseLayout title="Contact — ORVIO" description="Start a social media project with ORVIO.">
@@ -39,6 +40,16 @@ import { contactEmail } from "../site";
               <li><span>04</span>When does the work need to move?</li>
             </ol>
           </div>
+        </div>
+      </section>
+
+      <section class="beliefs section-pad" aria-labelledby="process-title">
+        <p class="eyebrow">What happens next <span class="sample-tag">Sample</span></p>
+        <h2 id="process-title">From brief<br />to first idea.</h2>
+        <div class="belief-grid">
+          {process.map((step) => (
+            <article><span>{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></article>
+          ))}
         </div>
       </section>
     </main>

@@ -1286,3 +1286,66 @@ summary:focus-visible {
     width: 16rem;
   }
 }
+
+/* Sample content + case studies */
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.sample-tag {
+  border: 1px dashed currentColor;
+  border-radius: 999px;
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-left: 0.5rem;
+  opacity: 0.75;
+  padding: 0.2rem 0.55rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.case-list { display: grid; gap: clamp(3rem, 7vw, 6rem); }
+.case-card { color: inherit; display: grid; gap: 1.5rem; text-decoration: none; }
+.case-card__poster { align-items: flex-start; aspect-ratio: 4 / 3; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: clamp(1rem, 3vw, 2rem); transition: scale 300ms ease; }
+.case-card:hover .case-card__poster { scale: 0.98; }
+.case-card__poster span { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; }
+.case-card__poster strong { font-family: var(--font-display); font-size: clamp(2.5rem, 8vw, 6rem); font-weight: 800; letter-spacing: -0.07em; line-height: 0.85; text-transform: uppercase; }
+.case-card__poster--signal { background: var(--signal); color: var(--ink); }
+.case-card__poster--lime { background: #d8ff39; color: var(--ink); }
+.case-card__poster--paper { background: var(--paper-deep); color: var(--ink); }
+.case-card__poster--ink { background: var(--ink); color: var(--paper); }
+.case-card__meta { color: var(--signal); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; margin: 0 0 1rem; text-transform: uppercase; }
+.case-card h3 { font-family: var(--font-display); font-size: clamp(1.75rem, 4vw, 3rem); letter-spacing: -0.05em; line-height: 0.95; margin: 0 0 1rem; }
+.case-card__copy > p:not(.case-card__meta) { color: var(--muted); line-height: 1.6; margin: 0 0 1.5rem; max-width: 40ch; }
+
+.about-story { display: grid; gap: 2rem; }
+
+/* Same-background sections stacked back to back: drop the doubled padding so the
+   gap matches the rest of the site (one section-pad, not two). */
+.beliefs + .about-story,
+.about-story + .team,
+.contact-page + .beliefs { padding-top: 0; }
+.about-story h2 { font-family: var(--font-display); font-size: clamp(2.5rem, 7vw, 6rem); letter-spacing: -0.06em; line-height: 0.9; margin: 0; }
+.about-story h2 em { color: var(--signal); font-family: Georgia, serif; font-weight: 400; }
+.about-story__copy p { font-size: clamp(1.05rem, 1.6vw, 1.3rem); line-height: 1.6; margin: 0 0 1.25rem; max-width: 52ch; }
+
+.team-avatar { align-items: center; background: var(--signal); border-radius: 50%; color: var(--ink) !important; display: inline-flex; font-size: 1rem !important; height: 4rem; justify-content: center; width: 4rem; }
+.team .belief-grid h3 { margin-top: 1.5rem; }
+.team .belief-grid p + p { margin-top: 0.5rem; }
+
+@media (min-width: 768px) {
+  .case-card { align-items: center; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 5vw, 5rem); }
+  .case-card:nth-of-type(even) .case-card__poster { order: 2; }
+  .about-story { grid-template-columns: 1fr 1fr; align-items: start; column-gap: clamp(2rem, 5vw, 5rem); }
+  .about-story > .eyebrow { grid-column: 1 / -1; }
+  .team .belief-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
